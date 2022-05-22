@@ -1,4 +1,4 @@
-package com.shopify.InventoryTrack;
+package com.shopify.InventoryTrack.integrationTest;
 
 import com.shopify.InventoryTrack.model.Item;
 import com.shopify.InventoryTrack.model.Warehouse;
@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,6 +17,7 @@ public class ItemsTestData
   @Autowired
   private ItemRepository itemRepository;
 
+  @EventListener(ApplicationReadyEvent.class)
   public void addOneItem()
   {
     var warehouse1 = Warehouse.builder()

@@ -1,4 +1,4 @@
-package com.shopify.InventoryTrack;
+package com.shopify.InventoryTrack.integrationTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;

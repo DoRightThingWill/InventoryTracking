@@ -57,7 +57,7 @@ public class ItemServiceUnitTest
 
 
     item1.setWarehouses(warehouseSet);
-    itemService.creatItem(item1);
+    itemService.createItemFromItem(item1);
   }
 
   @Transactional
