@@ -1,7 +1,6 @@
 package com.shopify.InventoryTrack.controller;
 
 
-import com.shopify.InventoryTrack.dto.AssignItemRequest;
 import com.shopify.InventoryTrack.dto.CreateWarehouseRequest;
 import com.shopify.InventoryTrack.model.Warehouse;
 import com.shopify.InventoryTrack.service.WarehouseService;
@@ -44,9 +43,9 @@ public class WareHouseController
     return warehouseService.getWarehouseById(id);
   }
 
-  @PutMapping("/{id}/item-assign")
-  public Warehouse assignInventoryToWarehouse(@PathVariable @Valid long id, @RequestBody @Valid AssignItemRequest assignInventoryRequest){
-    return warehouseService.assignInventoryToWarehouse(id, assignInventoryRequest);
+  @PutMapping("/{warehouseId}/items/{itemId}")
+  public Warehouse assignInventoryToWarehouse(@PathVariable @Valid long warehouseId, @PathVariable @Valid long itemId){
+    return warehouseService.assignInventoryToWarehouse(warehouseId, itemId);
   }
 
 }

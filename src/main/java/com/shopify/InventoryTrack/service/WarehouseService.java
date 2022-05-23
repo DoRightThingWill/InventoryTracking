@@ -41,18 +41,15 @@ public class WarehouseService
   }
 
   @Transactional
-  public Warehouse assignInventoryToWarehouse(long warehouseId, AssignItemRequest assignInventoryRequest)
+  public Warehouse assignInventoryToWarehouse(long warehouseId, long itemId)
   {
     var warehouse = warehouseRepository.getWarehouseById(warehouseId).orElseThrow(()->
         new ObjectNotFoundException("Warehouse can not be found by this Id: " + warehouseId));
 
-    assignInventoryRequest.itemIds().forEach( itemId ->
-    {
       var item = itemRepository.getItemById(itemId).orElseThrow(()->
           new ObjectNotFoundException("Item can not be found by this Id: " + itemId));
       item.getWarehouses().add(warehouse);
       itemRepository.save(item);
-    });
     return warehouse;
   }
 }

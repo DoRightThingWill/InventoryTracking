@@ -55,15 +55,15 @@ public class WarehouseIntegrationTest extends IntegrationTest
         .baseUri(uri)
         .contentType(ContentType.JSON)
         .pathParam("warehouseId", 1)
+        .pathParam("itemId", 1)
         .when()
-        .put("/warehouses/{warehouseId}/inventory-assign")
+        .put("/warehouses/{warehouseId}/items/{itemId}")
         .then()
         .statusCode(HttpStatus.OK.value())
         .log()
         .all()
         .body(
-            "address", equalTo("1437 Big Oak Rd Macon, Georgia(GA), 31217"),
-            "phoneNumber", equalTo("(478) 745-7411"));
+            "items.id", hasSize(2));
 
   }
 
@@ -102,7 +102,7 @@ public class WarehouseIntegrationTest extends IntegrationTest
             "id", equalTo(1),
             "address", equalTo("10201 Tanner Bridge Rd Henley, Missouri(MO), 65040"),
             "phoneNumber", equalTo("(573) 496-3106"),
-            "items", hasSize(3)
+            "items", hasSize(2)
             );
   }
 

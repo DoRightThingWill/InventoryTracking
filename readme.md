@@ -1,5 +1,4 @@
 ## This is an application to track inventory for a logistic company
-> Background info: 
 
 ## Features:
 #### Inventory
@@ -12,13 +11,15 @@
 - assign inventories to specific warehouse
 ## How to use this application
 - app installation
-  - install via docker images 
   - clone this repo to your local machine
   ```
   git clone git@github.com:DoRightThingWill/InventoryTrackingApp.git
   ```
 - start app in local
-- in browser type the 
+  ```
+  src/main/InventoryTrackApplication  run main()
+  ```
+- in browser visit the 
   ``` 
   http://localhost:8080/swagger-ui/index.html#/
   ```
@@ -27,12 +28,14 @@
 - Spring Boot
 - Spring MVC
 - Spring REST
-- CheckStyle
 - Gradle
 - Lombok
 - Flyway
 
 ## API Document
+```
+http://localhost:8080/v3/api-docs
+```
 
 ## Future works
 - Tests
@@ -44,4 +47,3 @@
 - CI/CD
   - set up continuous integration and continuous deployment via tools like Github action, TravisCI, etc
   - deploy the application onto cloud servers, like AWS, Azure, or GCP
-  - 
