@@ -15,4 +15,6 @@ public interface WarehouseRepository extends JpaRepository<Warehouse, Long>
 
   @Query("select w from Warehouse w")
   List<Warehouse> findAll();
+
+
 }
